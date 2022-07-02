@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": false,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "resolveJsonModule": true,
+    "preserveSymlinks": true,
+    "jsx": "react-jsx",
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "noEmit": true,
+
+    "isolatedModules": true,
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["./src/*"],
+      "public/*": ["./public/*"],
+    }
+  },
+  "typeRoots": [
+    "node_modules/@types",
+    "src/typings",
+    "node_modules/dayjs/plugin"
+  ],
+  "include": [
+    "src/*",
+    "src/**/*.tsx",
+    "src/**/*.jsx",
+    "src/**/*.ts",
+    "src/**/*.js"
+  ]
+}

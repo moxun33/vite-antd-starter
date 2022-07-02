@@ -1,0 +1,66 @@
+#permission-mgt-wrap {
+	.ant-tag-checkable {
+		cursor: pointer;
+		&:hover {
+			background-color: @primary-color;
+			color: white;
+		}
+	}
+	.ant-card-extra {
+		.ant-switch {
+			display: none;
+		}
+	}
+
+	.ant-table-tbody {
+		.ant-btn {
+			border: none !important;
+		}
+	}
+}
+#permission-assign-wrap {
+	background: white;
+	padding: 14px;
+	min-height: 700px;
+
+	.ant-col.ant-col-4.border-all {
+		margin-top: 110px;
+	}
+	.ant-tree {
+		.ant-tree-title {
+			font-size: 20px;
+		}
+		.ant-tree-node-selected {
+			background-color: @primary-color;
+			color: white;
+		}
+	}
+}
+
+#role-mgt-wrap {
+	.ant-card-head-wrapper {
+		input.ant-input {
+			height: 40px;
+		}
+	}
+	.ant-table-tbody {
+		.ant-btn {
+			border: none !important;
+		}
+		.ant-btn-danger {
+			color: @error-color;
+			background: white;
+			&:hover {
+				opacity: 0.8;
+			}
+		}
+	}
+}
+.hide-sync-btn {
+	.ant-btn.ant-btn-primary.sync-btn {
+		display: none !important;
+	}
+}
+.td-danger-btn {
+	color: @error-color;
+}

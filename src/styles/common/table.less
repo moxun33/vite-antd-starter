@@ -1,0 +1,10 @@
+.mx-table-wrap {
+  .mx-table-row {
+    &.pointer {
+      cursor: pointer;
+    }
+    &:nth-child(2n) {
+      background: fade(@table-row-hover-bg, 5%);
+    }
+  }
+}

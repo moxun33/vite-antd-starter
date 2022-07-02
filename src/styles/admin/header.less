@@ -1,0 +1,47 @@
+.mx-header-nav {
+	width: 100%;
+	min-height: 50px;
+	background: #fff;
+	padding: 10px 20px;
+	img.nav-logo {
+		max-height: 20px;
+	}
+	span.nav-sys-name {
+		color: @text-color;
+		font-size: 16px;
+		line-height: 20px;
+		vertical-align: middle;
+		font-weight: bold;
+		padding-left: 10px;
+	}
+	.content-head-username {
+		cursor: pointer;
+		color: @text-color;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow-x: hidden;
+
+		&:hover {
+			cursor:pointer;
+			color: @text-color;
+		}
+		img {
+		//	margin-top: -5px;
+			margin-right: 10px;
+		}
+
+
+		line-height: 20px;
+		font-size: 16px;
+		font-weight: bold;
+	}
+}
+.ant-menu.header-user-menu {
+
+	box-shadow: @card-shadow!important;
+
+//	transform: translate3d(0, 10px, 0);
+	.ant-menu-item {
+		text-align: center;
+	}
+}
