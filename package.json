@@ -26,7 +26,6 @@
     "antd": "^4.21.0",
     "axios": "^0.27.2",
     "dayjs": "^1.11.2",
-    "events": "^3.3.0",
     "file-saver": "^2.0.5",
     "jszip": "^3.10.0",
     "lodash-es": "^4.17.21",
@@ -36,7 +35,8 @@
     "react-dom": "^17.0.2",
     "react-highlight": "^0.14.0",
     "react-perfect-scrollbar": "^1.5.8",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "valtio": "^1.6.1"
   },
   "eslintConfig": {
     "extends": [

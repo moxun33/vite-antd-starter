@@ -1,5 +1,4 @@
-//import appStore from 'stores/appStore';
-import { EventCenter, EVENTS_TYPE } from '@/consts/events';
+import store from '@/stores/app-store';
 import request from '../utils/request';
 import { openNotification } from '../utils/antd';
 import { IReqConf } from '../utils/axios-uils';
@@ -50,17 +49,16 @@ export const firePostUploadFile = async (
  * */
 export const fireGetRequest = async (api: string, values: IObject = {}, config: IReqConf = {}) => {
   if (config && config.toggleLoading) {
-    EventCenter.emit(EVENTS_TYPE.GLOBAL_SPINNING, true);
-    // appStore.showLoading();
+    store.loading = true;
   }
   const resp: IObject = await request.get(api, { ...config, params: values });
   if (resp.code !== 200 && config && config.errTitle) {
     openNotification('error', config.errTitle || '请求失败', resp.message);
-    if (config && config.toggleLoading) EventCenter.emit(EVENTS_TYPE.GLOBAL_SPINNING, false);
+    if (config && config.toggleLoading) store.loading = false;
 
     return Promise.reject(resp);
   }
-  if (config && config.toggleLoading) EventCenter.emit(EVENTS_TYPE.GLOBAL_SPINNING, false);
+  if (config && config.toggleLoading) store.loading = false;
   // appStore.hideLoading();
   return Promise.resolve(resp);
 };
@@ -71,17 +69,16 @@ export const fireGetRequest = async (api: string, values: IObject = {}, config: 
  * */
 export const firePostRequest = async (api: string, values: IObject = {}, config: IReqConf = {}) => {
   if (config && config.toggleLoading) {
-    EventCenter.emit(EVENTS_TYPE.GLOBAL_SPINNING, true);
-    // appStore.showLoading();
+    store.loading = true;
   }
   const resp: IObject = await request.post(api, values, config);
   if (resp.code !== 200 && config && config.errTitle) {
     openNotification('error', config.errTitle || '操作失败', resp.message);
-    if (config && config.toggleLoading) EventCenter.emit(EVENTS_TYPE.GLOBAL_SPINNING, false);
+    if (config && config.toggleLoading) store.loading = false;
 
     return Promise.reject(resp);
   }
-  if (config && config.toggleLoading) EventCenter.emit(EVENTS_TYPE.GLOBAL_SPINNING, false);
+  if (config && config.toggleLoading) store.loading = false;
   //appStore.hideLoading();
   return Promise.resolve(resp);
 };

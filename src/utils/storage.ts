@@ -15,7 +15,7 @@ export const getItem = (key: string) => {
 };
 
 //	保存用户信息
-export const saveUserInfo = (info: IObject = {}) => {
+export const saveUserInfo = (info: Partial<User> = {}) => {
   saveItem(STORAGE_KEY_MAPPING.AUTH_TOKEN, info.token);
   saveItem(STORAGE_KEY_MAPPING.ROLES, JSON.stringify(info.roles || []));
   saveItem(STORAGE_KEY_MAPPING.USER_NAME, info.name);

@@ -4,11 +4,14 @@ import { APP_ROUTERS_CFG } from '@/routers/app';
 import renderRoutes from '../routers/renderRoutes';
 import { getLocalUserInfo } from '@/utils/storage';
 import { AppNavHeader } from '@/comps/Home/HomeHeader';
+import store from '@/stores/app-store';
 const { Content } = Layout;
 
 const ModulesIndex: React.FC<any> = () => {
   const pathname = window.location.pathname;
-  if (pathname.startsWith('/admin') || pathname.startsWith('/auth')) {
+  const { authed } = store;
+
+  if (!authed) {
     return <div className={'app-layout'}>{renderRoutes(APP_ROUTERS_CFG, getLocalUserInfo())}</div>;
   }
 

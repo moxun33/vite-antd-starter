@@ -1,28 +1,20 @@
-import { EventCenter, EVENTS_TYPE } from './consts/events';
+import store from '@/stores/app-store';
+import { useSnapshot } from 'valtio';
 import { Spin } from 'antd';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Main from './pages/index';
 import { Alert } from 'antd';
 
 import { BrowserRouter } from 'react-router-dom';
 function App() {
-  const [loading, setLoading] = useState(false);
-  useEffect(() => {
-    EventCenter.on(EVENTS_TYPE.GLOBAL_SPINNING, (show: boolean) => {
-      // console.log(show, 'show global spinning');
-      setLoading(show || false);
-    });
-    return () => {
-      EventCenter.off(EVENTS_TYPE.GLOBAL_SPINNING, () => 0);
-    };
-  }, []);
+  const snap = useSnapshot(store);
 
   return (
     <div className="App">
       <Alert.ErrorBoundary>
         <BrowserRouter>
           <Spin
-            spinning={loading}
+            spinning={snap.loading}
             tip={'正在处理请求，请耐心等候。'}
             style={{ zIndex: 99999, maxHeight: '100vh' }}>
             <Main />

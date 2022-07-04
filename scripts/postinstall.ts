@@ -3,7 +3,5 @@
  * description: postinstall 安装依赖后的操作
  */
 
-const init = () => {
-  console.log('done');
-};
-export default init;
+// @ts-ignore
+console.log('done');

@@ -3,24 +3,31 @@
  * description: LoginForm
  */
 
+import store from '@/stores/app-store';
 import React, { useState } from 'react';
 import { Button, Form, Input } from 'antd';
 import { saveUserInfo } from '@/utils/storage';
+import { useHistory } from 'react-router-dom';
+import { useSnapshot } from 'valtio';
 
 const LoginForm: React.FC<any> = () => {
   const [confirmLoading, setConfirmLoading] = useState(false);
   const [form] = Form.useForm();
+  const snap = useSnapshot(store);
 
+  const history = useHistory();
   const onOk = () => {
     form.validateFields().then((values) => {
       saveUserInfo({
         token: 'token',
+        userId: '1',
         name: 'name',
         roles: [],
         loginAccount: 'loginAccount',
         permissions: []
       });
-      window.location.href = window.location.origin;
+      snap.toggleAuth(true);
+      history.replace('/');
     });
   };
 

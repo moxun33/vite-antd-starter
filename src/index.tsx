@@ -3,6 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/index.less';
 import { ConfigProvider } from 'antd';
+import resso from 'resso';
 
 import App from './App';
 
@@ -19,3 +20,4 @@ ReactDOM.render(
   </>,
   document.getElementById('root')
 );
+resso.config({ batch: ReactDOM.unstable_batchedUpdates });
