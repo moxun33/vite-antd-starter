@@ -8,16 +8,18 @@
     "preview": "vite preview",
     "build": "vite build",
     "prepare": "node scripts/postinstall.ts && husky install",
-    "lint": "eslint src --fix --ext .ts,.tsx --quiet",
+    "lint": "npm run lint:es && yarn lint:style",
+    "lint:es": "eslint src --fix --ext .ts,.tsx ",
+    "lint:style": "stylelint src/**/*.less  --fix --custom-syntax postcss-less",
     "format": "prettier --write ",
     "postbuild": "node scripts/version.js",
     "test": "jest --passWithNoTests"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "prettier --write",
-      "eslint src --fix --ext .ts,.tsx",
-      "jest --passWithNoTests",
+      "npm run format",
+      "npm run lint:es",
+      "npm run test",
       "git add ."
     ]
   },
@@ -82,8 +84,11 @@
     "lint-staged": "^13.0.3",
     "magic-string": "^0.26.2",
     "minimist": "^1.2.5",
+    "postcss-less": "^6.0.0",
     "prettier": "^2.7.1",
     "semver": "^7.3.5",
+    "stylelint": "^14.9.1",
+    "stylelint-config-standard": "^26.0.0",
     "ts-babel": "^6.1.7",
     "ts-jest": "^28.0.5",
     "tslib": "^2.3.1",

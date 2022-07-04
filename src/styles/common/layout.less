@@ -1,7 +1,7 @@
 .app-layout {
   min-width: 1300px;
   min-height: 700px;
-  @keyframes logoRotate {
+  @keyframes logo-rotate {
     0% {
       transform: rotate(0deg);
     }
@@ -20,16 +20,16 @@
       align-items: center;
     }
     img:hover {
-      animation: logoRotate 1s linear;
+      animation: logo-rotate 1s linear;
     }
-    .sys-name{
+    .sys-name {
       background-image: linear-gradient(170deg, @primary-color, @primary-color-deep);
-      -webkit-background-clip: text;
+    //  -webkit-background-clip: text;
       color: transparent;
     }
   }
 }
 
-.white-bg{
+.white-bg {
   background: white;
 }
