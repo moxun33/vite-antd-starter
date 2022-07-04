@@ -14,8 +14,6 @@ import * as fs from 'fs';
 //import vitePluginMomentToDayjs from 'vite-plugin-moment-to-dayjs';
 import antdDayjs from 'antd-dayjs-vite-plugin';
 
-// @ts-ignore
-import antdViteImportPlugin from 'antd-vite-import-plugin';
 
 const pathResolver = (path: string) => _resolve(path);
 const themeVariables = lessToJS(fs.readFileSync(pathResolver('./src/themes/base.less'), 'utf8'));
