@@ -4,15 +4,15 @@
  */
 
 import React, { useState } from 'react';
-import { Button, Form, Input } from 'antd';
+import { Button, Form,  Input } from 'antd';
 import { saveUserInfo } from '@/utils/storage';
 
 const LoginForm: React.FC<any> = () => {
   const [confirmLoading, setConfirmLoading] = useState(false);
-  const [form] = Form.useForm();
+  const [form]: any = Form.useForm();
 
   const onOk = () => {
-    form.validateFields().then((values) => {
+    form.validateFields().then((values: Record<any, any>) => {
       saveUserInfo({
         token: 'token',
         userId: '1',

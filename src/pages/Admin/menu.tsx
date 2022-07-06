@@ -37,7 +37,7 @@ export const AdminLeftMenu: React.FC<{ location: Location }> = ({ location = win
     ),
     openKey = getMenuSelectedKey(location.pathname, getMenuKey(routes.P_A_DASHBOARD), 1);
   const [selectedKey, setSelectedKey] = useState(defaultSelectedKey);
-  const onMenuClick = (param: IObject) => {
+  const onMenuClick = (param: Record<any, any>) => {
     setSelectedKey(param.key);
   };
   console.log(defaultSelectedKey);

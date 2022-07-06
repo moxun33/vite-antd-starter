@@ -2,11 +2,11 @@
  * Created by xun on  2021/8/23 16:07.
  * description: common.d
  */
-interface IObject {
+interface Record<any, any> {
   [key: string]: any;
 }
 
-interface IAntdOption extends IObject {
+interface IAntdOption extends Record<any, any> {
   value: string | number | boolean;
   label: string;
 }
@@ -18,7 +18,7 @@ interface ITreeOption extends IAntdOption {
   isLeaf?: boolean;
   disabled?: boolean;
 }
-interface ITreeNode extends IObject {
+interface ITreeNode extends Record<any, any> {
   title: string;
   key: string;
   isLeaf?: boolean;

@@ -11,7 +11,7 @@ interface IProps {
 interface IState {
   component: React.ClassicComponentClass | null;
 }
-const AsyncComponent = (importComponent: () => Promise<IObject>) => {
+const AsyncComponent = (importComponent: () => Promise<Record<any, any>>) => {
   // eslint-disable-next-line react/display-name
   return class extends Component<IProps, IState> {
     constructor(props: IProps) {
@@ -23,7 +23,7 @@ const AsyncComponent = (importComponent: () => Promise<IObject>) => {
     }
 
     componentDidMount() {
-      importComponent().then((cmp: IObject) => {
+      importComponent().then((cmp: Record<any, any>) => {
         this.setState({ component: cmp.default });
       });
     }

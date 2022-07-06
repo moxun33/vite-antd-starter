@@ -17,7 +17,7 @@ export const getMenuSelectedKey = (pathname: string, defaultKey: string, positio
 };
 
 //跟 pathname 提取面包屑的数据
-export const setBreadcrumbData = (location: IObject, title: string, depth = 1, editDepth = 2) => {
+export const setBreadcrumbData = (location: Record<any, any>, title: string, depth = 1, editDepth = 2) => {
   const { pathname } = location;
   if (!pathname) {
     return [];

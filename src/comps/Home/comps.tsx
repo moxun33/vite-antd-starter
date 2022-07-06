@@ -12,7 +12,7 @@ function getBreadInfo(key: string, menuOpts: MenuProps['items'] = []) {
   return filtered.length ? filtered[0] : {};
 }
 export function getBreadcrumbItem(key: string, menuOpts: MenuProps['items'] = []) {
-  const info: IObject = getBreadInfo(key, menuOpts) as IObject;
+  const info: Record<any, any> = getBreadInfo(key, menuOpts) as Record<any, any>;
   return (
     info &&
     info.label && (

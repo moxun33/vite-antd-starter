@@ -39,15 +39,15 @@ const LSKO = STORAGE_KEY_MAPPING;
  *@return
  */
 export const checkNewToken = (
-  headers: IObject,
+  headers: Record<any, any>,
   storageKeyObj = LSKO,
-  data: IObject = {},
-  options: IObject = DEF_OPTS
+  data: Record<any, any> = {},
+  options: Record<any, any> = DEF_OPTS
 ) => {
   const cacheAC: string = window.localStorage.getItem(storageKeyObj.API_COUNT) || '0';
   let localApiCount = parseInt(cacheAC) > 0 ? parseInt(cacheAC) : 0;
   const unauthenticated = data && parseInt(String(data.code)) === 401,
-    _headers: IObject = headers || {};
+    _headers: Record<any, any> = headers || {};
   const newToken = _headers['new-token'] || _headers['New-Token'];
   if (headers && newToken) {
     //刷新 token
@@ -99,7 +99,7 @@ const cleanFormValue = (val: any) => {
   return String(val).replace(/\r\n/g, '\n');
 };
 const initRequestConfig = (config: IReqConf = {}, storageKeyObj = LSKO) => {
-  const headers: IObject = config?.headers || {};
+  const headers: Record<any, any> = config?.headers || {};
   if (config.method === 'post' && config.data) {
     //非 json 串时
 
@@ -175,7 +175,7 @@ const initRequestError = (err: string) => Promise.reject(err);
 const initResponseConfig = (
   response: AxiosResponse,
   storageKeyObj = LSKO,
-  options: IObject = DEF_OPTS
+  options: Record<any, any> = DEF_OPTS
 ) => {
   checkNewToken(response.headers, storageKeyObj, response.data, {
     ...options,
@@ -242,7 +242,7 @@ const initResponseConfig = (
 const initResponseError = (
   error: AxiosError,
   storageKeyObj = LSKO,
-  options: IObject = DEF_OPTS
+  options: Record<any, any> = DEF_OPTS
 ) => {
   const errRes = (error.response || {}) as AxiosError,
     url = errRes.config?.url || '';

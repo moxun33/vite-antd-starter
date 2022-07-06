@@ -64,10 +64,10 @@ export const splitValidArray = (str: string, sep = '/') => str.split(sep).filter
 //提取状态枚举的对应对象
 export const extractOptionsObj = (
   v: string,
-  options: IObject[] = [],
+  options: Record<any, any>[] = [],
   valKey = 'value'
-): IObject => {
-  const filtered: IObject[] = options.filter((item) => item[valKey] + '' === v + '');
+): Record<any, any> => {
+  const filtered: Record<any, any>[] = options.filter((item) => item[valKey] + '' === v + '');
   return filtered.length ? filtered[0] : {};
 };
 

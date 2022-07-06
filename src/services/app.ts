@@ -9,7 +9,7 @@ import { IReqConf } from '../utils/axios-uils';
 
 export const fireGetFileRequest = async (
   api: string,
-  values: IObject = {},
+  values: Record<any, any> = {},
   responseType: any = 'blob',
   conf = {}
 ) => {
@@ -30,7 +30,7 @@ export const fireGetFileRequest = async (
  * */
 export const firePostUploadFile = async (
   api: string,
-  values: IObject = {},
+  values: Record<any, any> = {},
   config: IReqConf = {}
 ) => {
   config.timeout = 300000;
@@ -47,11 +47,11 @@ export const firePostUploadFile = async (
  * 通用 get 请求
  * toggleLoading 是否启动全局 loading
  * */
-export const fireGetRequest = async (api: string, values: IObject = {}, config: IReqConf = {}) => {
+export const fireGetRequest = async (api: string, values: Record<any, any> = {}, config: IReqConf = {}) => {
   if (config && config.toggleLoading) {
     store.loading = true;
   }
-  const resp: IObject = await request.get(api, { ...config, params: values });
+  const resp: Record<any, any> = await request.get(api, { ...config, params: values });
   if (resp.code !== 200 && config && config.errTitle) {
     openNotification('error', config.errTitle || '请求失败', resp.message);
     if (config && config.toggleLoading) store.loading = false;
@@ -67,11 +67,11 @@ export const fireGetRequest = async (api: string, values: IObject = {}, config: 
  * 通用 post 请求
  * toggleLoading 是否启动全局 loading
  * */
-export const firePostRequest = async (api: string, values: IObject = {}, config: IReqConf = {}) => {
+export const firePostRequest = async (api: string, values: Record<any, any> = {}, config: IReqConf = {}) => {
   if (config && config.toggleLoading) {
     store.loading = true;
   }
-  const resp: IObject = await request.post(api, values, config);
+  const resp: Record<any, any> = await request.post(api, values, config);
   if (resp.code !== 200 && config && config.errTitle) {
     openNotification('error', config.errTitle || '操作失败', resp.message);
     if (config && config.toggleLoading) store.loading = false;
@@ -87,7 +87,7 @@ export const firePostRequest = async (api: string, values: IObject = {}, config:
  * */
 export const postFormWithInvalidValue = (
   api: string,
-  values: IObject = {},
+  values: Record<any, any> = {},
   config: IReqConf = {}
 ) =>
   firePostRequest(api, values, {
@@ -103,7 +103,7 @@ export const fireAxiosAll = (values = []) => {
 /**
  * 通用 post 请求-JSON 格式
  * */
-export const firePostJsonReq = (api: string, values: IObject = {}, extraConfig: IReqConf = {}) => {
+export const firePostJsonReq = (api: string, values: Record<any, any> = {}, extraConfig: IReqConf = {}) => {
   const config = {
     headers: {
       'Content-Type': 'application/json'

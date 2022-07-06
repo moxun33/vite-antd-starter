@@ -2,7 +2,7 @@
  * Created by xun on  2021/8/23 16:10.
  * description: routes
  */
-interface IRoutes extends IObject {
+interface IRoutes extends Record<any, any> {
   key?: string;
   path: string;
   strict?: boolean;

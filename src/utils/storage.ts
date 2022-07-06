@@ -45,7 +45,7 @@ export const getUserPermissions = (viewOnly = false) => {
 };
 
 //检查用户是否已登录
-export const checkUserLogined = (info: IObject) => {
+export const checkUserLogined = (info: Record<any, any>) => {
   info = info || getLocalUserInfo();
   return info && info.token && info.name && info.loginAccount;
 };

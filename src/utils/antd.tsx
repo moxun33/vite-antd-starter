@@ -39,7 +39,7 @@ export const genPaginationSetup = () => ({
  * labelName 是options 中 文本的变量名
  * */
 
-export const wrapOptions = (data: IObject[], keyName = 'value', labelName = 'text') => {
+export const wrapOptions = (data: Record<any, any>[], keyName = 'value', labelName = 'text') => {
   if (Array.isArray(data) && data.length > 0) {
     return data.map((s, i) => {
       const v = s[keyName],
@@ -63,7 +63,7 @@ export const initFormStrValue = (v: any, deVal = undefined) => (v ? v.toString()
  * labelName 是options 中 文本的变量名
  * */
 
-export const genRadiosData = (data: IObject[], keyName = 'value', labelName = 'text') => {
+export const genRadiosData = (data: Record<any, any>[], keyName = 'value', labelName = 'text') => {
   if (data !== null && data.length > 0) {
     return data.map((s, i) => {
       const value = `${s[keyName]}`,
@@ -78,7 +78,7 @@ export const genRadiosData = (data: IObject[], keyName = 'value', labelName = 't
 /**
  * 根据Pagination属性转换请求分页参数
  * */
-export const getReqParamByPagination = (pagination: IObject, defaultSize = 50) => {
+export const getReqParamByPagination = (pagination: Record<any, any>, defaultSize = 50) => {
   if (!pagination) {
     return {};
   }
@@ -175,7 +175,7 @@ export const openErrorModal = (
   title: string,
   content: string,
   onOk?: (...args: any[]) => any,
-  props: IObject = {}
+  props: Record<any, any> = {}
 ) =>
   Modal.error({
     title,
@@ -190,7 +190,7 @@ export const openSuccessModal = (
   title: string,
   content: string,
   onOk?: (...args: any[]) => any,
-  props: IObject = {}
+  props: Record<any, any> = {}
 ) =>
   Modal.success({
     title,
@@ -214,7 +214,7 @@ export const inputNumberFormatter = (unit = '%') => {
   };
 };
 
-export const renderStatusTag = (config: IObject) => {
+export const renderStatusTag = (config: Record<any, any>) => {
   if (!config) {
     return;
   }
@@ -229,7 +229,7 @@ export const renderStatusTag = (config: IObject) => {
 //根据给定值和选项提取中文文案
 export const renderLabelByOptions = (
   value: any,
-  options: IObject[] = [],
+  options: Record<any, any>[] = [],
   valKey = 'value',
   textKey = 'label',
   pure = false
@@ -238,7 +238,7 @@ export const renderLabelByOptions = (
     return '';
   }
   const filtered = options.filter((item: any) => item[valKey].toString() === value.toString()),
-    obj: IObject = filtered.length ? filtered[0] : {};
+    obj: Record<any, any> = filtered.length ? filtered[0] : {};
   const text = obj[textKey] || obj['text'] || value;
   if (pure) return text;
   return <span style={obj.color ? { color: obj.color } : {}}>{text}</span>;

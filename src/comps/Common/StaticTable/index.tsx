@@ -20,11 +20,11 @@ import { QuestionCircleOutlined } from '@ant-design/icons';
 	/!** 标题提示信息，string|ReactNode *!/
 	tip?: string | React.ReactNode;
 	/!** 标题根据数据动态渲染，function，参数为当前数据  *!/
-	titleRender?: (data: IObject) => any;
+	titleRender?: (data: Record<any, any>) => any;
 	/!** 可独占一行 *!/
 	oneLine?: boolean;
 	/!** 数据自定义显示 *!/
-	render?: (value: any, data: IObject) => void;
+	render?: (value: any, data: Record<any, any>) => void;
 }*/
 // maxColNumber 标签与值为1列
 const StaticTable: React.FC<{
@@ -52,7 +52,7 @@ const StaticTable: React.FC<{
     return <span />;
   }
   const _columns = enableFilter ? columns.filter((item) => !item.hide) : columns;
-  const renderContent = (titleObj: IObject, defaultValue: any = '') => {
+  const renderContent = (titleObj: Record<any, any>, defaultValue: any = '') => {
     const { dataIndex, key, render } = titleObj;
     const dataKey = dataIndex || key;
     if (!dataKey) {
@@ -62,7 +62,7 @@ const StaticTable: React.FC<{
     const value = data && data[dataKey];
     return typeof render === 'function' ? render(value, data) : value ? value : '';
   };
-  const renderTitle = (titleObj: IObject) => {
+  const renderTitle = (titleObj: Record<any, any>) => {
     const { titleRender, tip } = titleObj;
     if (typeof titleRender === 'function') {
       return titleRender(data);

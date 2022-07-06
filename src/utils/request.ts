@@ -20,7 +20,7 @@ const redirectToLogin = () => {
 };
 //弹窗错误请求信息
 const openErrorNotification = (type: string, msg: string) => {
-  let data: IObject = {};
+  let data: Record<any, any> = {};
   try {
     data = JSON.parse(msg.replace('请求出错了: ', ''));
   } catch (e) {

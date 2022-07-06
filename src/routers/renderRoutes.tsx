@@ -27,8 +27,8 @@ function renderRoutes(
   routes: IRoutes[],
   userInfo: User = {} as User,
   multipleRoutes: any[] = [],
-  extraProps: IObject = [],
-  switchProps: IObject = []
+  extraProps: Record<any, any> = [],
+  switchProps: Record<any, any> = []
 ) {
   const list = [];
   const authed = userInfo.loginAccount && userInfo.name && userInfo.token;
@@ -39,7 +39,7 @@ function renderRoutes(
         path={route.path}
         exact={route.exact}
         strict={route.strict}
-        render={(props: IObject) => {
+        render={(props: Record<any, any>) => {
           // 将authed赋值到route，试子组件可以通过route.authed获取当前用户权限
           if (authed) route.userInfo = userInfo;
           if (!route.ignoreAuth && !authed && !route.path.startsWith('/auth')) {

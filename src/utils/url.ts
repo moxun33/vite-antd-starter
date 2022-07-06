@@ -9,7 +9,7 @@
  * @return object
  * {key:value}
  * */
-export const parseUrlSearch = (qs = ''): IObject => {
+export const parseUrlSearch = (qs = ''): Record<any, any> => {
   if (qs && qs.indexOf('?') > -1 && qs.startsWith('?')) {
     const newQS = qs.replace('?', '');
     const tmpArr = newQS.split('&');
@@ -32,7 +32,7 @@ export const parseUrlSearch = (qs = ''): IObject => {
  *
  * @return string
  * */
-export const initObjToUrlSearch = (obj: IObject) => {
+export const initObjToUrlSearch = (obj: Record<any, any>) => {
   let urlQs = '';
   const keys = Object.keys(obj);
   if (obj instanceof Object && keys.length > 0) {
