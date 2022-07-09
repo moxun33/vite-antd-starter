@@ -1,7 +1,9 @@
 import zh_CN from 'antd/es/locale-provider/zh_CN';
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import './styles/index.less';
+
 import { ConfigProvider } from 'antd';
 
 import App from './App';

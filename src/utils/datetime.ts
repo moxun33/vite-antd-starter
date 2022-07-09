@@ -4,18 +4,10 @@
  */
 
 import { DATE_FORMAT, DATETIME_FORMAT } from '@/consts/const';
-import dayjs from 'dayjs';
-import 'dayjs/locale/zh-cn';
+import dayjs from 'moment';
+import 'moment/dist/locale/zh-cn';
 
-/*import relativeTimePlugin from 'dayjs/plugin/relativeTime';
-import utcPlugin from 'dayjs/plugin/utc';*/
 dayjs.locale('zh-cn');
-
-export const addDayjsPlugins = () => {
-  // dayjs.extend(relativeTimePlugin);
-  // dayjs.extend(utcPlugin);
-};
-addDayjsPlugins();
 
 /**
  * momentjs 格式成 2017-09-12

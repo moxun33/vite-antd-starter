@@ -10,11 +10,6 @@ import vitePluginImp from 'vite-plugin-imp';
 import react from '@vitejs/plugin-react';
 import * as fs from 'fs';
 
-// @ts-ignore
-//import vitePluginMomentToDayjs from 'vite-plugin-moment-to-dayjs';
-import antdDayjs from 'antd-dayjs-vite-plugin';
-
-
 const pathResolver = (path: string) => _resolve(path);
 const themeVariables = lessToJS(fs.readFileSync(pathResolver('./src/themes/base.less'), 'utf8'));
 function _resolve(dir: string) {
@@ -51,7 +46,6 @@ export default defineConfig({
     }
   },
   plugins: [
-    antdDayjs(),
     react(),
     vitePluginImp({
       libList: [
@@ -79,29 +73,14 @@ export default defineConfig({
     }
   },
   optimizeDeps: {
-    include: [
-      'dayjs/locale/zh-cn',
-      'antd/es/locale-provider/zh_CN',
-      'dayjs/dayjs.min',
-      'dayjs/plugin/isSameOrBefore',
-      'dayjs/plugin/isSameOrAfter',
-      'dayjs/plugin/advancedFormat',
-      'dayjs/plugin/customParseFormat',
-      'dayjs/plugin/weekday',
-      'dayjs/plugin/weekYear',
-      'dayjs/plugin/weekOfYear',
-      'dayjs/plugin/isMoment',
-      'dayjs/plugin/localeData',
-      'dayjs/plugin/localizedFormat'
-    ],
+    include: [],
     esbuildOptions: {
       plugins: []
     }
   },
   resolve: {
     alias: {
-      moment: 'dayjs',
-      'rc-picker/es/generate/moment': 'rc-picker/es/generate/dayjs', //必须
+      dayjs: 'moment',
       '@': _resolve('src'),
       public: _resolve('public')
     }
