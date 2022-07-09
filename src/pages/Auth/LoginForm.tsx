@@ -4,7 +4,7 @@
  */
 
 import React, { useState } from 'react';
-import { Button, Form,  Input } from 'antd';
+import { Button, Form, Input } from 'antd';
 import { saveUserInfo } from '@/utils/storage';
 
 const LoginForm: React.FC<any> = () => {

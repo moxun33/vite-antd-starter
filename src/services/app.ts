@@ -47,7 +47,11 @@ export const firePostUploadFile = async (
  * 通用 get 请求
  * toggleLoading 是否启动全局 loading
  * */
-export const fireGetRequest = async (api: string, values: Record<any, any> = {}, config: IReqConf = {}) => {
+export const fireGetRequest = async (
+  api: string,
+  values: Record<any, any> = {},
+  config: IReqConf = {}
+) => {
   if (config && config.toggleLoading) {
     store.loading = true;
   }
@@ -67,7 +71,11 @@ export const fireGetRequest = async (api: string, values: Record<any, any> = {},
  * 通用 post 请求
  * toggleLoading 是否启动全局 loading
  * */
-export const firePostRequest = async (api: string, values: Record<any, any> = {}, config: IReqConf = {}) => {
+export const firePostRequest = async (
+  api: string,
+  values: Record<any, any> = {},
+  config: IReqConf = {}
+) => {
   if (config && config.toggleLoading) {
     store.loading = true;
   }
@@ -103,7 +111,11 @@ export const fireAxiosAll = (values = []) => {
 /**
  * 通用 post 请求-JSON 格式
  * */
-export const firePostJsonReq = (api: string, values: Record<any, any> = {}, extraConfig: IReqConf = {}) => {
+export const firePostJsonReq = (
+  api: string,
+  values: Record<any, any> = {},
+  extraConfig: IReqConf = {}
+) => {
   const config = {
     headers: {
       'Content-Type': 'application/json'

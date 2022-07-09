@@ -27,7 +27,10 @@ const renderImgIcon = (icon: any, info: Record<any, any> = {}) => (
   />
 );
 // 设置菜单图标
-const renderMenuItemIcon = (info: Record<any, any> = {}, options: Record<any, any> = MENU_RENDER_OPTS) => {
+const renderMenuItemIcon = (
+  info: Record<any, any> = {},
+  options: Record<any, any> = MENU_RENDER_OPTS
+) => {
   if (!(info.icon && (options.showIcon || options.showSubIcon))) {
     return;
   }
@@ -65,7 +68,10 @@ const renderMenuBadge = (num: number, badgeProps: Record<any, any> = {}) => {
  * 循环渲染多个菜单选项
  * data的最小化配置格式 [{key：’key‘，path:'/path',text:'菜单名'}]
  * */
-export const renderMenuItem = (data: Record<any, any>[] = [], options: Record<any, any> = MENU_RENDER_OPTS) => {
+export const renderMenuItem = (
+  data: Record<any, any>[] = [],
+  options: Record<any, any> = MENU_RENDER_OPTS
+) => {
   return data.map((s, i) => {
     const key = s.key || splitValidArray(s.path).pop(),
       { permissions } = s;
@@ -100,7 +106,10 @@ const renderCollapsedSubmenu = (icon: any, unreadNum = 0) => {
     renderImgIcon(icon)
   );
 };
-export const renderSubMenuWithItem = (obj: Record<any, any> = {}, options: Record<any, any> = MENU_RENDER_OPTS) => {
+export const renderSubMenuWithItem = (
+  obj: Record<any, any> = {},
+  options: Record<any, any> = MENU_RENDER_OPTS
+) => {
   const { unreadNum, children, permissions } = obj;
 
   if (!hasPermissions(permissions, true)) {
