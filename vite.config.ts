@@ -23,7 +23,7 @@ export default defineConfig({
     // https: true,
     proxy: {
       '/api': {
-        target: 'http://jenkins.office.gz:8048',
+        target: 'http://m.office.gz:8048',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, '')
       },
